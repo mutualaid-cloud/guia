@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Camino hacia Mí</title>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Estilo.css">
+    
+    <!-- En lugar de include('Estilos'), vinculas tu archivo CSS externo -->
+    <link rel="stylesheet" href="estilos.css">
 </head>
 
-<body onload="iniciarPagina()">
+<body>
     
     <div id="login-view">
-        <!-- Contenido de login.html aquí -->
+        <!-- PEGA AQUÍ TODO EL CÓDIGO QUE TENÍAS DENTRO DE login.html -->
     </div> 
 
     <div id="app-content" style="display:none;">
@@ -29,7 +31,7 @@
             </div>
             
             <div id="log-diario-view" style="display:none;">
-                <!-- Contenido de Logodiario.html aquí -->
+                <!-- PEGA AQUÍ EL CÓDIGO DE Logodiario.html -->
             </div>
 
             <div class="legajo-badge">
@@ -61,36 +63,44 @@
 
                     <!-- Paso 1: Mi "Yo" Auténtico -->
                     <div id="cont-step-1" class="step-content" style="display:none;">
-                        <!-- Contenido de IntroyActividad1.html -->
+                        <!-- PEGA AQUÍ EL CÓDIGO DE IntroyActividad1.html -->
                     </div>
 
                     <!-- Paso 2: Mis Emociones y Necesidades -->
                     <div id="cont-step-2" class="step-content" style="display:none;">
-                        <!-- Contenido de Actividad2y3.html -->
+                        <!-- PEGA AQUÍ EL CÓDIGO DE Actividad2y3.html -->
                     </div>
 
                     <!-- Paso 3: La Vida Que Me Moldea -->
                     <div id="cont-step-3" class="step-content" style="display:none;">
-                        <!-- Contenido de Actividad4.html -->
+                        <!-- PEGA AQUÍ EL CÓDIGO DE Actividad4.html -->
                     </div> 
 
                     <!-- Paso 4: La Autotrascendencia -->
                     <div id="cont-step-4" class="step-content" style="display:none;">
-                        <!-- Contenido de autotrascendencia.html -->
+                        <!-- PEGA AQUÍ EL CÓDIGO DE autotrascendencia.html -->
                     </div>
 
                     <!-- Paso 5: En Busca del Sentido -->
                     <div id="cont-step-5" class="step-content" style="display:none;">
-                        <!-- Contenido de sentido.html -->
+                         <!-- PEGA AQUÍ EL CÓDIGO DE sentido.html -->
                     </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
+                </div> 
+            </div> 
+        </div> 
+    </div> 
 
-    <!-- Carga directa del script compilado -->
+    <!-- Vincular el script de JavaScript (mencionando el archivo que creaste para GitHub) -->
     <script src="script.js"></script>
 
+    <script>
+      // Aseguramos la inicialización al cargar la página
+      window.addEventListener('DOMContentLoaded', function() {
+          if (typeof iniciarPagina === 'function') {
+              iniciarPagina();
+          }
+      });
+    </script>
 </body>
 </html>
