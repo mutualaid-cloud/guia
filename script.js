@@ -1,3 +1,6 @@
+// ⚠️ REEMPLAZA ESTA URL CON TU URL DE DESPLIEGUE DE GOOGLE APPS SCRIPT
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycby5bDpviNsTIVv7zcw96BRPrGRArnBBHSz38q-fqht7uI7MMD5tJToji6D4YQ_P_H-YaA/exec";
+
 // 0. VARIABLES GLOBALES
 if (typeof N_LEGAJO === 'undefined') {
     var N_LEGAJO = "";
@@ -9,6 +12,14 @@ var globalCategories = [];
 
 const stepTitles = ["Introducción", "1. Mi 'Yo' Auténtico", "2. Mis Emociones y Necesidades", "3. La Vida Que Me Moldea", "4. La Autotrascendencia", "5. En Busca del Sentido"];
 
+// función genérica para enviar datos a Apps Script vía HTTP
+function enviarAGoogleScript(accion, payload) {
+    return fetch(GAS_WEB_APP_URL, {
+        method: "POST",
+        body: JSON.stringify({ accion: accion, payload: payload })
+    }).then(res => res.json());
+}
+
 // 1. INICIALIZACIÓN
 function iniciarPagina() {
     console.log("Iniciando sistema...");
@@ -18,7 +29,6 @@ function iniciarPagina() {
     if (loginView) loginView.style.display = 'flex';
     if (appContent) appContent.style.display = 'none';
 
-    // Pre-renderizamos la tabla al iniciar
     renderTablaNecesidades();
 }
 
@@ -38,31 +48,24 @@ function verificarLegajo() {
 
     btn.disabled = true;
     btn.innerText = "Verificando...";
-    
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(function(resultado) {
-                if (resultado === true || (resultado && resultado.success)) {
-                    N_LEGAJO = legajo;
-                    entrarApp();
-                } else {
-                    btn.disabled = false;
-                    btn.innerText = "Entrar al Camino";
-                    if (errorMsg) errorMsg.style.display = "block";
-                    input.style.borderColor = "red";
-                }
-            })
-            .withFailureHandler(function(err) {
+
+    enviarAGoogleScript("buscarLegajo", { legajo: legajo })
+        .then(data => {
+            if (data.status === 'success' && (data.result === true || (data.result && data.result.success))) {
+                N_LEGAJO = legajo;
+                entrarApp();
+            } else {
                 btn.disabled = false;
-                btn.innerText = "Error de conexión";
-                console.error("Error:", err);
-            })
-            .buscarLegajo(legajo);
-    } else {
-        console.warn("Ejecutando fuera de Apps Script. Simulando entrada.");
-        N_LEGAJO = legajo;
-        entrarApp();
-    }
+                btn.innerText = "Entrar al Camino";
+                if (errorMsg) errorMsg.style.display = "block";
+                input.style.borderColor = "red";
+            }
+        })
+        .catch(err => {
+            btn.disabled = false;
+            btn.innerText = "Error de conexión";
+            console.error("Error:", err);
+        });
 }
 
 // 3. ENTRADA A LA APP
@@ -224,23 +227,24 @@ function enviarLogodiario(btn) {
         btn.disabled = true;
         btn.innerText = "⏳ Enviando...";
 
-        if (typeof google !== 'undefined' && google.script && google.script.run) {
-            google.script.run
-                .withSuccessHandler(function(response) {
+        enviarAGoogleScript("registrarLogodiario", formData)
+            .then(res => {
+                if (res.status === 'success') {
                     alert("✨ ¡Logodiario guardado con éxito!");
-                    window.open(google.script.host.origin + google.script.host.editorServices.getActiveAppUrl(), '_top');
-                })
-                .withFailureHandler(function(error) {
-                    console.error("Error al guardar:", error);
-                    alert("❌ Error en el servidor: " + error);
+                    location.reload();
+                } else {
+                    alert("❌ Error: " + res.message);
                     btn.disabled = false;
                     btn.innerText = originalText;
-                })
-                .registrarLogodiario(formData);
-        }
+                }
+            })
+            .catch(err => {
+                console.error("Error al guardar:", err);
+                btn.disabled = false;
+                btn.innerText = originalText;
+            });
     } catch (e) {
-        console.error("Error en el script:", e);
-        alert("Error local: " + e.message);
+        console.error("Error local:", e);
         btn.disabled = false;
         btn.innerText = "Reintentar";
     }
@@ -267,15 +271,22 @@ function enviarActividad1(btn) {
     };
     btn.disabled = true;
     btn.innerText = "Guardando...";
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(() => {
+
+    enviarAGoogleScript("registrarActividad1", data)
+        .then(res => {
+            if (res.status === 'success') {
                 alert("¡Identidad Guardada!");
-                btn.disabled = false;
-                btn.innerText = "💾 Guardar Actividad de Identidad";
-            })
-            .registrarActividad1(data);
-    }
+            } else {
+                alert("Error: " + res.message);
+            }
+            btn.disabled = false;
+            btn.innerText = "💾 Guardar Actividad de Identidad";
+        })
+        .catch(err => {
+            console.error(err);
+            btn.disabled = false;
+            btn.innerText = "Reintentar";
+        });
 }
 
 // --- ACTIVIDAD: MI LUGAR EN EL MUNDO ---
@@ -296,20 +307,21 @@ function enviarActividadLlamada(btn) {
     btn.disabled = true;
     btn.innerText = "Guardando...";
 
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(function(response) {
+    enviarAGoogleScript("guardarActividadLlamada", data)
+        .then(res => {
+            if (res.status === 'success') {
                 alert("✨ ¡Actividad guardada con éxito!");
-                window.open(google.script.host.origin + google.script.host.editorServices.getActiveAppUrl(), '_top');
-            })
-            .withFailureHandler(function(error) {
-                console.error("Error al guardar:", error);
-                alert("❌ Hubo un problema al guardar. Intenta de nuevo.");
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            })
-            .guardarActividadLlamada(data);
-    }
+            } else {
+                alert("❌ Error: " + res.message);
+            }
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        })
+        .catch(err => {
+            console.error(err);
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
 }
 
 // --- FUNCIONES DE ARRASTRE (DRAG & DROP) ---
@@ -380,20 +392,21 @@ function enviarActividad2(btn) {
     btn.disabled = true;
     btn.innerText = "Guardando...";
 
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(function(response) {
+    enviarAGoogleScript("registrarActividad2", data)
+        .then(res => {
+            if (res.status === 'success') {
                 alert("✨ ¡Actividad guardada con éxito!");
-                window.open(google.script.host.origin + google.script.host.editorServices.getActiveAppUrl(), '_top');
-            })
-            .withFailureHandler(function(error) {
-                console.error("Error al guardar:", error);
-                alert("❌ Hubo un problema al guardar. Intenta de nuevo.");
-                btn.innerText = originalText;
-                btn.disabled = false;
-            })
-            .registrarActividad2(data); 
-    }
+            } else {
+                alert("❌ Error: " + res.message);
+            }
+            btn.innerText = originalText;
+            btn.disabled = false;
+        })
+        .catch(err => {
+            console.error(err);
+            btn.innerText = originalText;
+            btn.disabled = false;
+        });
 }
 
 // --- LÓGICA TABLA INTERACTIVA ---
@@ -490,22 +503,24 @@ function enviarActividad3(btn) {
         valores: promedios
     };
 
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(() => {
+    enviarAGoogleScript("registrarActividad3", payload)
+        .then(res => {
+            if (res.status === 'success') {
                 btn.innerText = "✅ ¡Guardado!";
-                setTimeout(() => { 
-                    btn.innerText = "💾 Guardar Necesidades"; 
-                    btn.disabled = false; 
-                }, 3000);
-            })
-            .withFailureHandler((err) => {
-                alert("Error al guardar: " + err);
+            } else {
+                alert("Error: " + res.message);
                 btn.innerText = "💾 Reintentar";
-                btn.disabled = false;
-            })
-            .registrarActividad3(payload);
-    }
+            }
+            setTimeout(() => { 
+                btn.innerText = "💾 Guardar Necesidades"; 
+                btn.disabled = false; 
+            }, 3000);
+        })
+        .catch(err => {
+            alert("Error al guardar: " + err);
+            btn.innerText = "💾 Reintentar";
+            btn.disabled = false;
+        });
 }
 
 // --- ENVIAR ACTIVIDAD 4: AUTODISTANCIAMIENTO ---
@@ -538,22 +553,24 @@ function enviarActividad4(btn) {
         superacion: superacion
     };
 
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(() => {
+    enviarAGoogleScript("guardarActividad4", payload)
+        .then(res => {
+            if (res.status === 'success') {
                 btn.innerText = "✅ ¡Crónica Guardada!";
-                setTimeout(() => { 
-                    btn.innerText = textoOriginal; 
-                    btn.disabled = false; 
-                }, 3000);
-            })
-            .withFailureHandler((err) => {
-                alert("Error al guardar: " + err);
+            } else {
+                alert("Error: " + res.message);
                 btn.innerText = "💾 Reintentar";
-                btn.disabled = false;
-            })
-            .guardarActividad4(payload);
-    }
+            }
+            setTimeout(() => { 
+                btn.innerText = textoOriginal; 
+                btn.disabled = false; 
+            }, 3000);
+        })
+        .catch(err => {
+            alert("Error al guardar: " + err);
+            btn.innerText = "💾 Reintentar";
+            btn.disabled = false;
+        });
 }
 
 // --- ENVIAR ACTIVIDAD 5: LA AUTOTRASCENDENCIA ---
@@ -586,20 +603,21 @@ function enviarAutotrascendencia(btn) {
         movilizacion: movilizacion
     };
 
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(() => {
+    enviarAGoogleScript("registrarActividad5", payload)
+        .then(res => {
+            if (res.status === 'success') {
                 alert("¡Tus reflexiones de Autotrascendencia se han guardado con éxito!");
-                btn.innerHTML = "💾 Guardar Respuestas";
-                btn.disabled = false;
-            })
-            .withFailureHandler((err) => {
-                alert("Error al guardar: " + err.message);
-                btn.innerHTML = "💾 Guardar Respuestas";
-                btn.disabled = false;
-            })
-            .registrarActividad5(payload);
-    }
+            } else {
+                alert("Error: " + res.message);
+            }
+            btn.innerHTML = "💾 Guardar Respuestas";
+            btn.disabled = false;
+        })
+        .catch(err => {
+            alert("Error al guardar: " + err);
+            btn.innerHTML = "💾 Guardar Respuestas";
+            btn.disabled = false;
+        });
 }
 
 function ActividadYoSoy() {
@@ -611,16 +629,15 @@ function ActividadYoSoy() {
         yo_puedo_ser: yoPuedoSerTexto
     };
 
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(function(response) {
+    enviarAGoogleScript("registrarRespuestasYoSoy", datos)
+        .then(res => {
+            if (res.status === 'success') {
                 alert('¡Actividad guardada correctamente!');
-            })
-            .withFailureHandler(function(error) {
-                alert('Error al guardar: ' + error.message);
-            })
-            .registrarRespuestasYoSoy(datos);
-    }
+            } else {
+                alert('Error al guardar: ' + res.message);
+            }
+        })
+        .catch(err => alert('Error: ' + err));
 }
 
 function enviarBusquedaSentido(boton) {
@@ -652,19 +669,22 @@ function enviarBusquedaSentido(boton) {
         refCompromiso: refCompromiso
     };
 
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(function(response) {
+    enviarAGoogleScript("guardarPagina5Backend", datos)
+        .then(res => {
+            if (res.status === 'success') {
                 boton.innerHTML = "✅ ¡Guardado con éxito!";
                 alert("Felicidades. Tu proceso de búsqueda de sentido ha sido guardado.");
-            })
-            .withFailureHandler(function(err) {
+            } else {
                 boton.disabled = false;
                 boton.innerHTML = "💾 Guardar Actividad Final";
-                alert("Error al guardar: " + err.message);
-            })
-            .guardarPagina5Backend(datos);
-    }
+                alert("Error: " + res.message);
+            }
+        })
+        .catch(err => {
+            boton.disabled = false;
+            boton.innerHTML = "💾 Guardar Actividad Final";
+            alert("Error al guardar: " + err);
+        });
 }
 
 function enviarSentido(btn) {
@@ -681,9 +701,11 @@ function enviarSentido(btn) {
     btn.innerHTML = '⏳ Guardando...';
     btn.disabled = true;
 
-    if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-            .withSuccessHandler(function(response) {
+    const payload = { comodidad: comodidad, postura: postura, compromiso: compromiso };
+
+    enviarAGoogleScript("guardarRespuestasSentido", payload)
+        .then(res => {
+            if (res.status === 'success') {
                 btn.innerHTML = '✅ Guardado con Éxito';
                 btn.style.backgroundColor = '#2e7d32';
                 setTimeout(() => {
@@ -691,12 +713,15 @@ function enviarSentido(btn) {
                     btn.style.backgroundColor = '#8c7851';
                     btn.disabled = false;
                 }, 3000);
-            })
-            .withFailureHandler(function(err) {
-                alert("Error al guardar: " + err.message);
+            } else {
+                alert("Error: " + res.message);
                 btn.innerHTML = textoOriginal;
                 btn.disabled = false;
-            })
-            .guardarRespuestasSentido(comodidad, postura, compromiso);
-    }
+            }
+        })
+        .catch(err => {
+            alert("Error al guardar: " + err);
+            btn.innerHTML = textoOriginal;
+            btn.disabled = false;
+        });
 }
