@@ -1,0 +1,17 @@
+<div class="login-card">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="https://iili.io/fJEHMZu.png" alt="Logo" style="width: 80px; height: auto;">
+    </div>
+    <h2 style="color: var(--color-primary); font-family: 'Caveat'; font-size: 2.5rem; margin-bottom: 10px;">"El Camino hacia Mí"</h2>
+    <p>Ingresa tu Nº de Legajo</p>
+    
+    <input type="text" id="input-legajo" class="legajo-input" placeholder="EJ: ABC123" onkeyup="if(event.key === 'Enter') verificarLegajo()">
+    
+    <div id="login-error" style="color: #e53e3e; display: none; margin-bottom: 15px; font-size: 0.9rem;">
+        Legajo no encontrado. Intenta de nuevo.
+    </div>
+    
+    <button class="btn-submit" id="btn-login" onclick="verificarLegajo()">
+        Entrar a la Guía
+    </button>
+</div>
