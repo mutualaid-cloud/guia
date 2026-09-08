@@ -1,78 +1,55 @@
-<div class="intro-box-sobria">
-    <h1 class="page-main-title">2. Mis Emociones y Necesidades</h1>
-    <p class="texto-guia-sobrio">Explorando el mapa de nuestro mundo interno y aprendiendo a escuchar lo que nuestro cuerpo necesita decirnos...</p>
-</div>
-<h3 class="activity-sub-title">Actividad Práctica: "Mis Emociones"</h3>
-
-<div class="activity-row row-normal">
-    <div class="question-container">
-        <p class="question-text">¿En cuál de estos cinco sueles ubicarte la mayor parte del tiempo?</p>
-        <span class="sub-pregunta">Ahora traeremos a la consciencia tus emociones, trabajando solo con 5 emociones básicas. Arrastra las emociones más usuales, hacia la figura.</span>
+<!-- Actividad2y3.html -->
+<div id="cont-step-2" class="step-content">
+    <div class="intro-box-sobria">
+        <h1 class="page-main-title">2. Mis Emociones y Necesidades</h1>
+        <p class="texto-guia-sobrio">Explorando el mapa de nuestro mundo interno y aprendiendo a escuchar lo que nuestro cuerpo necesita decirnos...</p>
     </div>
     
-    <div class="canvas-emociones-container">
-        <div class="drag-items-grid">
-            <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-alegria" data-color="rgba(255, 249, 219, 0.6)">Alegría</div>
-            <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-enojo" data-color="rgba(254, 226, 226, 0.6)">Enojo</div>
-            <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-tristeza" data-color="rgba(224, 242, 254, 0.6)">Tristeza</div>
-            <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-miedo" data-color="rgba(243, 232, 255, 0.6)">Miedo</div>
-            <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-afecto" data-color="rgba(252, 231, 243, 0.6)">Afecto</div>
+    <h3 class="activity-sub-title">Actividad Práctica: "Mis Emociones"</h3>
+
+    <div class="activity-row row-normal">
+        <div class="question-container">
+            <p class="question-text">¿En cuál de estos cinco sueles ubicarte la mayor parte del tiempo?</p>
+            <span class="sub-pregunta">Arrastra las emociones más usuales hacia la figura.</span>
         </div>
-        <div id="drop-zone" class="human-siluette-modern" ondrop="drop(event)" ondragover="allowDrop(event)" style="position: relative; display: inline-block; min-height: 400px; width: 100%; text-align: center;">
-    <img src="https://iili.io/BPGlBeV.png" alt="Figura Humana" style="max-height: 380px; display: block; margin: 0 auto;">
-</div>
-    </div>
-</div>
-
-<div class="activity-row row-reverse">
-    <div class="post-it blue">
-        <textarea id="ans_causa" placeholder="Reflexiona aquí sobre el origen de lo que sientes..."></textarea>
-    </div>
-    <div class="question-container">
-        <p class="question-text">¿Sabes la causa que origina esa emoción?</p>
-    </div>
-</div>
-
-<div style="text-align: center; margin-bottom: 40px;">
-    <button class="btn btn-guia-delicado" onclick="enviarActividad2(this)">💾 Guardar Mis Emociones</button>
-</div>
-
-<hr style="border: 0; height: 1px; background: #e2e8f0; margin: 40px 0;">
-
-<!-- Cambiado a la clase unificada sobria -->
-<div class="intro-box-sobria">
-    <h3 class="activity-sub-title">Actividad: "Escuchar las emociones para entender tus necesidades"</h3>
-    <img src="https://iili.io/BPhZDbt.png" alt="Mensajes" style="max-width:100%; border-radius:15px; margin: 20px 0;">
-</div>
-
-<hr style="border: 0; height: 1px; background: #e2e8f0; margin: 40px 0;">
-
-<!-- Títulos de la Actividad 3 (CORREGIDO: se eliminó el </div> intruso que iba aquí) -->
-<h3 class="activity-sub-title">Actividad: "¿Qué tan cumplidas se encuentran tus necesidades?"</h3>
-<p class="texto-guia-sobrio">
-    "Este ejercicio te ayudará a estar más conectado con tu esencia, siendo consciente de tus emociones y actuando a tiempo para cubrir tus necesidades naturales."
-</p>
-
-<!-- Contenedor de la Tabla Interactiva -->
-<div class="registro-necesidades-container">
-    <div id="tabla-interactiva-grid" class="grid-necesidades">
-        <!-- Se generarán 4 columnas aquí: Físicas, Mentales, Emocionales, Espirituales -->
+        
+        <div class="canvas-emociones-container">
+            <div class="drag-items-grid">
+                <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-alegria" data-color="rgba(255, 249, 219, 0.6)">Alegría</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-enojo" data-color="rgba(254, 226, 226, 0.6)">Enojo</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-tristeza" data-color="rgba(224, 242, 254, 0.6)">Tristeza</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-miedo" data-color="rgba(243, 232, 255, 0.6)">Miedo</div>
+                <div class="drag-item" draggable="true" ondragstart="drag(event)" id="emo-afecto" data-color="rgba(252, 231, 243, 0.6)">Afecto</div>
+            </div>
+            <div id="drop-zone" class="human-siluette-modern" ondrop="drop(event)" ondragover="allowDrop(event)" style="position: relative; display: inline-block; min-height: 400px; width: 100%; text-align: center;">
+                <img src="https://iili.io/BPGlBeV.png" alt="Figura Humana" style="max-height: 380px; display: block; margin: 0 auto;">
+            </div>
+        </div>
     </div>
 
-    <div class="controles-tabla">
-        <button class="btn-reiniciar" onclick="reiniciarTabla()">Reiniciar Todo</button>
-        <button class="btn btn-guia-delicado" onclick="enviarActividad3(this)">💾 Guardar Balance</button>
+    <div class="activity-row row-reverse">
+        <div class="post-it blue">
+            <textarea id="ans_causa" placeholder="Reflexiona aquí sobre el origen de lo que sientes..."></textarea>
+        </div>
+        <div class="question-container">
+            <p class="question-text">¿Sabes la causa que origina esa emoción?</p>
+        </div>
     </div>
-</div>
 
-<hr style="border: 0; height: 1px; background: #e2e8f0; margin: 40px 0;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <button class="btn btn-guia-delicado" onclick="enviarActividad2(this)">💾 Guardar Mis Emociones</button>
+    </div>
 
-<!-- Video de Canva: Las Cuatro Dimensiones -->
-<h3 class="activity-sub-title">🎥 Las Cuatro Dimensiones de las Necesidades</h3>
-<div class="video-recurso-container" style="margin-top: 30px; margin-bottom: 50px;">
-    <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); overflow: hidden; border-radius: 8px;">
-        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-            src="https://www.canva.com/design/DAHIQ4xxj7k/G2G5fBMYLm6V7NfLtV9S4w/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-        </iframe>
+    <hr style="border: 0; height: 1px; background: #e2e8f0; margin: 40px 0;">
+
+    <h3 class="activity-sub-title">Actividad: "¿Qué tan cumplidas se encuentran tus necesidades?"</h3>
+
+    <div class="registro-necesidades-container">
+        <div id="tabla-interactiva-grid" class="grid-necesidades"></div>
+
+        <div class="controles-tabla">
+            <button class="btn-reiniciar" onclick="reiniciarTabla()">Reiniciar Todo</button>
+            <button class="btn btn-guia-delicado" onclick="enviarActividad3(this)">💾 Guardar Balance</button>
+        </div>
     </div>
 </div>
