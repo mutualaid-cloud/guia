@@ -1,123 +1,106 @@
-<div class="intro-box-sobria">
-    <h1 class="page-main-title">1. Mi "Yo" Auténtico</h1>
-    <p class="texto-guia-sobrio">Revisando lo que conozco de mí. Observando a consciencia qué me digo a mí misma, a mí mismo, sobre quién soy...</p>
-</div>
-
-<h3 class="activity-sub-title">Actividad Práctica: "Mi Identidad"</h3>
-
-<div class="activity-row row-normal">
-    <div class="question-container">
-        <p class="question-text">¿Quién eres? (Describete más allá de tus roles, estudios académicos, relaciones afectivas, etc.)</p>
-    </div>
-    <div class="post-it pi-pastel-yellow">
-        <textarea id="ans_quien" placeholder="Escribe relatando como si se tratará de tu mejor amig@ … Por ejemplo: “Él/Ella es una persona…”"></textarea>
+<!-- IntroyActividad1.html -->
+<!-- Paso 0: Introducción -->
+<div id="cont-step-0" class="step-content">
+    <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; border-radius: 15px; overflow: hidden;">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+            src="https://www.canva.com/design/DAG_dUeKGD4/2-bW_tx4JBsbfIQS2bZcPA/view?embed" 
+            allow="autoplay; encrypted-media; fullscreen" 
+            allowfullscreen>
+        </iframe>
     </div>
 </div>
 
-<div class="activity-row row-reverse">
-    <div class="post-it pi-pastel-blue">
-        <textarea id="ans_talentos" placeholder="Mis fortalezas son..."></textarea>
+<!-- Paso 1: Mi "Yo" Auténtico -->
+<div id="cont-step-1" class="step-content" style="display:none;">
+    <div class="intro-box-sobria">
+        <h1 class="page-main-title">1. Mi "Yo" Auténtico</h1>
+        <p class="texto-guia-sobrio">Revisando lo que conozco de mí. Observando a consciencia qué me digo a mí misma, a mí mismo, sobre quién soy...</p>
     </div>
-    <div class="question-container">
-        <p class="question-text">¿Qué cualidades, dones o talentos tienes? ¿Qué actividad harías aunque no te paguen?</p>
-    </div>
-</div>
 
-<div class="activity-row row-normal">
-    <div class="question-container">
-        <p class="question-text">¿Qué rasgo físico de tu cara te gusta hoy? (Ojos, sonrisa, mirada..)</p>
-    </div>
-    <div class="post-it pi-pastel-green">
-        <textarea id="ans_rasgos" placeholder="Lo que me gusta es..."></textarea>
-    </div>
-</div>
+    <h3 class="activity-sub-title">Actividad Práctica: "Mi Identidad"</h3>
 
-<div class="activity-row row-reverse">
-    <div class="post-it pi-pastel-pink">
-        <input type="hidden" id="ans_autoestima" value="">
-        <div class="autoestima-grid">
-            <div class="check-manual" onclick="selectAuto(this, 'Amor')">
-                <div class="check-box-organic"></div> <span>Amor</span>
-            </div>
-            <div class="check-manual" onclick="selectAuto(this, 'Tristeza')">
-                <div class="check-box-organic"></div> <span>Tristeza</span>
-            </div>
-            <div class="check-manual" onclick="selectAuto(this, 'Alegría')">
-                <div class="check-box-organic"></div> <span>Alegría</span>
-            </div>
-            <div class="check-manual" onclick="selectAuto(this, 'Vergüenza')">
-                <div class="check-box-organic"></div> <span>Vergüenza</span>
-            </div>
-            <div class="check-manual" onclick="selectAuto(this, 'Orgullo')">
-                <div class="check-box-organic"></div> <span>Orgullo</span>
-            </div>
-            <div class="check-manual" onclick="selectAuto(this, 'Odio')">
-                <div class="check-box-organic"></div> <span>Odio</span>
-            </div>
+    <div class="activity-row row-normal">
+        <div class="question-container">
+            <p class="question-text">¿Quién eres? (Describete más allá de tus roles, estudios académicos, relaciones afectivas, etc.)</p>
+        </div>
+        <div class="post-it pi-pastel-yellow">
+            <textarea id="ans_quien" placeholder="Escribe relatando como si se tratará de tu mejor amig@ … Por ejemplo: “Él/Ella es una persona…”"></textarea>
         </div>
     </div>
-    <div class="question-container">
-        <p class="question-text">¿Qué emoción sientes por ti con mayor frecuencia?</p>
+
+    <div class="activity-row row-reverse">
+        <div class="post-it pi-pastel-blue">
+            <textarea id="ans_talentos" placeholder="Mis fortalezas son..."></textarea>
+        </div>
+        <div class="question-container">
+            <p class="question-text">¿Qué cualidades, dones o talentos tienes? ¿Qué actividad harías aunque no te paguen?</p>
+        </div>
     </div>
-</div>
 
-<div style="text-align:center; margin-top:50px; padding-bottom: 40px;">
-    <button class="btn btn-guia-delicado" onclick="enviarActividad1(this)">
-        💾 Guardar Actividad de Identidad
-    </button>
-</div>
-
-<hr style="border: 0; height: 1px; background: #e2e8f0; margin: 50px 0;">
-<hr class="divisor-actividad-sobrio">
-
-<div class="intro-box-sobria" style="margin-top: 60px; margin-bottom: 40px;"> 
-    <h3 class="activity-sub-title">Actividad: “Mi lugar en el mundo”</h3>
-</div>
-
-<ul style="padding-left: 20px; margin-bottom: 25px;">
-    <li class="texto-guia-sobrio" style="margin-bottom: 15px;">
-        Identifica un <strong>"Círculo de Pertenencia"</strong> (familia, amigos, club, o incluso tu grupo de apoyo en AAFASUAC).
-    </li> 
-    <li class="texto-guia-sobrio">
-        Hoy vas a enviar un mensaje o hacer una llamada a una persona de ese círculo, simplemente para preguntar: <strong>"¿Cómo estás?"</strong>.
-    </li>
-</ul>
-
-<div style="text-align: center; margin-bottom: 35px;">
-    <img src="https://iili.io/C9aBwIn.gif" alt="Conexión y Círculo de Pertenencia" style="max-width:100%; height:auto; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
-</div>
-
-<div style="margin-bottom: 25px;">
-    <p class="texto-guia-sobrio" style="text-align: center;">
-        Registra cómo se sintió esa persona al ser tomada en cuenta por ti. Al salir de ti para cuidar a otro (Autotrascendencia), rompes el aislamiento.
-    </p>
-</div>
-
-<div class="cuaderno-container" style="margin-bottom: 30px;">
-    <div class="cuaderno-hoja">
-        <textarea id="ans_llamada" placeholder="Escribe aquí tu experiencia y cómo se sintió la otra persona al recibir tu mensaje..."></textarea>
+    <div class="activity-row row-normal">
+        <div class="question-container">
+            <p class="question-text">¿Qué rasgo físico de tu cara te gusta hoy? (Ojos, sonrisa, mirada..)</p>
+        </div>
+        <div class="post-it pi-pastel-green">
+            <textarea id="ans_rasgos" placeholder="Lo que me gusta es..."></textarea>
+        </div>
     </div>
-</div>
 
-<div style="text-align:center; margin-bottom: 50px;">
-    <button class="btn btn-guia-delicado" onclick="enviarActividadLlamada(this)">
-        💾 Guardar Registro de Llamada
-    </button>
-</div>
+    <div class="activity-row row-reverse">
+        <div class="post-it pi-pastel-pink">
+            <input type="hidden" id="ans_autoestima" value="">
+            <div class="autoestima-grid">
+                <div class="check-manual" onclick="selectAuto(this, 'Amor')"><div class="check-box-organic"></div> <span>Amor</span></div>
+                <div class="check-manual" onclick="selectAuto(this, 'Tristeza')"><div class="check-box-organic"></div> <span>Tristeza</span></div>
+                <div class="check-manual" onclick="selectAuto(this, 'Alegría')"><div class="check-box-organic"></div> <span>Alegría</span></div>
+                <div class="check-manual" onclick="selectAuto(this, 'Vergüenza')"><div class="check-box-organic"></div> <span>Vergüenza</span></div>
+                <div class="check-manual" onclick="selectAuto(this, 'Orgullo')"><div class="check-box-organic"></div> <span>Orgullo</span></div>
+                <div class="check-manual" onclick="selectAuto(this, 'Odio')"><div class="check-box-organic"></div> <span>Odio</span></div>
+            </div>
+        </div>
+        <div class="question-container">
+            <p class="question-text">¿Qué emoción sientes por ti con mayor frecuencia?</p>
+        </div>
+    </div>
 
-<hr style="border: 0; height: 1px; background: #e2e8f0; margin: 50px 0;">
-<hr style="border: 0; height: 1px; background: #e2e8f0; margin: 50px 0;">
+    <div style="text-align:center; margin-top:50px; padding-bottom: 40px;">
+        <button class="btn btn-guia-delicado" onclick="enviarActividad1(this)">💾 Guardar Actividad de Identidad</button>
+    </div>
 
-<div style="font-family:'Poppins', sans-serif; text-align: center; color:#7f8c8d; margin-bottom: 15px;">
-     <h3 class="activity-sub-title">Actividad Práctica: "El Guardián de mi Templo"</h3>
-</div>
+    <hr style="border: 0; height: 1px; background: #e2e8f0; margin: 50px 0;">
 
-<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 12px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-    src="https://www.canva.com/design/DAHKNeER40c/9MPk1aV4Drn_IBcJ7X9Tpw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<div style="text-align: center; font-family:'Poppins', sans-serif; margin-top: 10px; padding-bottom: 60px;">
-    <a href="https://www.canva.com/design/DAHKNeER40c/9MPk1aV4Drn_IBcJ7X9Tpw/view" target="_blank" rel="noopener" style="color:#7da820; font-weight:600; text-decoration:none; font-size:0.95rem;">
-        </a>
+    <div class="intro-box-sobria" style="margin-top: 60px; margin-bottom: 40px;"> 
+        <h3 class="activity-sub-title">Actividad: “Mi lugar en el mundo”</h3>
+    </div>
+
+    <ul style="padding-left: 20px; margin-bottom: 25px;">
+        <li class="texto-guia-sobrio" style="margin-bottom: 15px;">Identifica un <strong>"Círculo de Pertenencia"</strong>.</li> 
+        <li class="texto-guia-sobrio">Envía un mensaje o haz una llamada preguntando: <strong>"¿Cómo estás?"</strong>.</li>
+    </ul>
+
+    <div style="text-align: center; margin-bottom: 35px;">
+        <img src="https://iili.io/C9aBwIn.gif" alt="Círculo de Pertenencia" style="max-width:100%; height:auto; border-radius:12px;">
+    </div>
+
+    <div class="cuaderno-container" style="margin-bottom: 30px;">
+        <div class="cuaderno-hoja">
+            <textarea id="ans_llamada" placeholder="Escribe aquí tu experiencia y cómo se sintió la otra persona al recibir tu mensaje..."></textarea>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-bottom: 50px;">
+        <button class="btn btn-guia-delicado" onclick="enviarActividadLlamada(this)">💾 Guardar Registro de Llamada</button>
+    </div>
+
+    <hr style="border: 0; height: 1px; background: #e2e8f0; margin: 50px 0;">
+
+    <div style="text-align: center; color:#7f8c8d; margin-bottom: 15px;">
+         <h3 class="activity-sub-title">Actividad Práctica: "El Guardián de mi Templo"</h3>
+    </div>
+
+    <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; overflow: hidden; border-radius: 12px;">
+      <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+        src="https://www.canva.com/design/DAHKNeER40c/9MPk1aV4Drn_IBcJ7X9Tpw/view?embed" allowfullscreen>
+      </iframe>
+    </div>
 </div>
