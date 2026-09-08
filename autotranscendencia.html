@@ -1,64 +1,28 @@
-<!-- ============================================= -->
-<!-- INICIO DE LA PÁGINA 4 -->
-<!-- ============================================= -->
-
-<div class="intro-box-sobria">
-    <h1 class="page-main-title">4. La Autotrascendencia</h1>
-    <p class="texto-guia-sobrio">Realiza la siguiente actividad para profundizar en tu sentido de trascendencia y conexión con los demás.</p>
-</div>
-
-<!-- Contenedor adaptado para Canva -->
-<div class="contenedor-canva">
-    <iframe class="iframe-canva" src="https://www.canva.com/design/DAHK5Xh14SU/v6Ce-rt9NY3qh4Bg6N6zJg/view?embed" allowfullscreenScrolled="no" allowfullscreen></iframe>
-</div>
-
-<!-- Bloque de preguntas (Se mantiene la clase px-2) -->
-<div class="px-2" style="margin-top: 30px;">
-    
-    <div class="mb-5">
-        <label class="form-label d-block mb-1" style="font-size: 1.15rem; color: #8c7851; font-weight: bold;">
-            👣 La pregunta por tu huella:
-        </label>
-        <p class="text-muted mb-3" style="line-height: 1.5;">Piensa por un instante en las cosas que haces a lo largo del día. Si hoy tuvieras que elegir una sola tarea, un solo oficio, o un pequeño rincón del mundo que dependa de tu cuidado... ¿cuál sería? ¿Qué es aquello que, si tú no lo hicieras, quedaría sin hacer o perdería su brillo?</p>
-        <textarea class="caja-reflexion" id="ans_huella" placeholder="Escribe aquí tu reflexión..."></textarea>
+<!-- autotrascendencia.html -->
+<div id="cont-step-4" class="step-content">
+    <div class="intro-box-sobria">
+        <h1 class="page-main-title">4. La Autotrascendencia</h1>
+        <p class="texto-guia-sobrio">Profundiza en tu sentido de trascendencia y conexión con los demás.</p>
     </div>
 
-    <div class="mb-5">
-        <label class="form-label d-block mb-1" style="font-size: 1.15rem; color: #8c7851; font-weight: bold;">
-            🤝 La pregunta por el otro:
-        </label>
-        <p class="text-muted mb-3" style="line-height: 1.5;">Mira a tu alrededor. Más allá de tu propio dolor, sé que es real y pesado... ¿Quién es esa persona cercana a la que le podrías aliviar un momento del día? ¿Es un hijo, un amigo, un vecino, o quizás un desconocido? ¿Qué necesita esa persona de ti que nadie más puede darle de la misma manera?</p>
-        <textarea class="caja-reflexion" id="ans_otro" placeholder="Escribe aquí tu reflexión..."></textarea>
+    <div class="px-2" style="margin-top: 30px;">
+        <div class="mb-5">
+            <label class="form-label d-block mb-1" style="color: #8c7851; font-weight: bold;">👣 La pregunta por tu huella:</label>
+            <textarea class="caja-reflexion" id="ans_huella" placeholder="Escribe aquí tu reflexión..."></textarea>
+        </div>
+
+        <div class="mb-5">
+            <label class="form-label d-block mb-1" style="color: #8c7851; font-weight: bold;">🤝 La pregunta por el otro:</label>
+            <textarea class="caja-reflexion" id="ans_otro" placeholder="Escribe aquí tu reflexión..."></textarea>
+        </div>
+
+        <div class="mb-5">
+            <label class="form-label d-block mb-1" style="color: #8c7851; font-weight: bold;">✨ La pregunta por la movilización:</label>
+            <textarea class="caja-reflexion" id="ans_movilizacion" placeholder="Escribe aquí tu reflexión..."></textarea>
+        </div>
+
+        <div class="text-center" style="margin-top: 3rem;">
+            <button class="btn btn-guia-delicado" onclick="enviarAutotrascendencia(this)">💾 Guardar Respuestas</button>
+        </div>
     </div>
-
-    <div class="mb-5">
-        <label class="form-label d-block mb-1" style="font-size: 1.15rem; color: #8c7851; font-weight: bold;">
-            ✨ La pregunta por la movilización:
-        </label>
-        <p class="text-muted mb-3" style="line-height: 1.5;">Cuando imaginas que completas esa tarea o que tiendes esa mano... ¿qué pasa dentro de tu pecho? ¿Qué pequeña chispa se enciende en ti cuando sabes que tu esfuerzo hizo que el día de alguien más fuera un poco menos oscuro? Anota lo que brota en tu mente. Al responder, estás empezando a dar a luz a tu obra y a tu servicio. Estás descubriendo que tu presencia es necesaria.</p>
-        <textarea class="caja-reflexion" id="ans_movilizacion" placeholder="Escribe aquí tu reflexión..."></textarea>
-    </div>
-
-    <div class="text-center" style="margin-top: 4.5rem; margin-bottom: 4rem;">
-        <button class="btn btn-guia-delicado" id="btn-save-trascendencia" 
-                onclick="enviarAutotrascendencia(this)" 
-                style="background-color: #8c7851; border-radius: 30px; padding: 14px 65px; font-weight: bold; box-shadow: 0 4px 12px rgba(140,120,81,0.25); transition: all 0.2s;">
-            💾 Guardar Respuestas
-        </button>
-    </div>
-
-<hr style="border: 0; height: 1px; background: #e2e8f0; margin: 40px 0;">
-
-<div class="intro-box-sobria" style="margin-top: 40px;"> 
-    <h3 class="activity-sub-title">Actividad: "El Ejercicio del Espejo"</h3>
-    <p class="texto-guia-sobrio" style="text-align: left;">
-        Para concretar este autoreconocimiento, realiza el siguiente ejercicio de tres pasos. Responde de forma consecutiva, permitiendo que la respuesta anterior te guíe a la siguiente.
-    </p>
-</div>
-
-<!-- Contenedor adaptado para Canva -->
-<div class="contenedor-canva">
-    <iframe class="iframe-canva" src="https://www.canva.com/design/DAHMTqf-DEQ/ljGYlRV9rwyK8baksnOAnw/view?embed" allowfullscreenScrolled="no" allowfullscreen></iframe>
-</div>
-
 </div>
