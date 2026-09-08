@@ -1,166 +1,35 @@
-<!-- ============================================= -->
-<!-- INICIO DE LA PÁGINA 5: EN BUSCA DEL SENTIDO -->
-<!-- ============================================= -->
-<div id="pagina5" class="pagina">
-
+<!-- sentido.html -->
+<div id="cont-step-5" class="step-content">
     <div class="intro-box-sobria">
         <h1 class="page-main-title">5. En Busca del Sentido</h1>
-        <p class="texto-guia-sobrio">Una vez que hemos explorado quiénes somos y revisado nuestra identidad, es momento de dar un paso hacia el exterior.</p>
+        <p class="texto-guia-sobrio">Visibiliza tus valores proyectados en una persona a la que respetas profundamente.</p>
     </div>
 
-    <div style="max-width: 750px; margin: 0 auto; padding: 10px;">
+    <div style="max-width: 750px; margin: 0 auto;">
+        <input type="text" id="p5_nombre_admirado" class="caja-reflexion" placeholder="Nombre de la persona admirada...">
+        <textarea id="p5_reflexion_compromiso" class="caja-reflexion" placeholder="Tu compromiso de acción concreta..."></textarea>
         
-        <h3 class="activity-sub-title">Actividad Práctica: "El Espejo de la Admiración"</h3>
-        <p class="texto-guia-sobrio" style="margin-bottom: 30px;">
-            Esta actividad está diseñada para que puedas visibilizar tus propios valores inherentes, proyectados en una persona a la que respetas profundamente.
-        </p>
-
-        <!-- PASO 1 -->
-<div class="paso-contenedor" style="border-left: 4px solid #8c7851;">
-    <label class="form-label d-block mb-2" style="font-weight: bold; color: #5c4033; font-size: 1.1rem;">
-        📌 Paso 1: Piensa en una persona a la que admires profundamente.
-    </label>
-    <p class="text-muted mb-3" style="font-size: 0.9rem;">Puede ser alguien de tu entorno cercano (un familiar, un amigo, un mentor), una figura histórica, o incluso un personaje de la literatura o el cine.</p>
-    <input type="text" id="p5_nombre_admirado" class="caja-reflexion" style="height: 6px; padding: 12px;" placeholder="Escribe su nombre aquí...">
-</div>
-
-<!-- PASO 2 -->
-<div class="paso-contenedor">
-    <label class="form-label d-block mb-1" style="font-weight: bold; color: #5c4033; font-size: 1.1rem;">
-        📌 Paso 2: ¿Por qué admiras a esta persona?
-    </label>
-    <p class="text-muted mb-3" style="font-size: 0.9rem;">No pienses en lo que "tiene", sino en cómo hace las cosas y en su actitud ante la vida. Describe 3 conductas concretas:</p>
-    
-    <div class="item-numerado">
-        <span class="numero-indicador">1</span>
-        <input type="text" id="p5_actitud_1" class="caja-reflexion" style="height: auto; border: none; background: transparent; padding: 4px;" placeholder="Primera conducta o actitud...">
-    </div>
-    <div class="item-numerado">
-        <span class="numero-indicador">2</span>
-        <input type="text" id="p5_actitud_2" class="caja-reflexion" style="height: auto; border: none; background: transparent; padding: 4px;" placeholder="Segunda conducta o actitud...">
-    </div>
-    <div class="item-numerado" style="margin-bottom: 0;">
-        <span class="numero-indicador">3</span>
-        <input type="text" id="p5_actitud_3" class="caja-reflexion" style="height: auto; border: none; background: transparent; padding: 4px;" placeholder="Tercera conducta o actitud...">
-    </div>
-</div>
-
-        <!-- PASO 3 -->
-        <div class="mb-5">
-            <label class="form-label d-block mb-1" style="font-weight: bold; color: #5c4033;">
-                📌 Paso 3: El valor detrás de la actitud
-            </label>
-            <p class="text-muted mb-3" style="font-size: 0.9rem;">Detrás de cada actitud que admiramos, hay un valor sosteniéndola. Si esa persona actúa con paciencia ante la adversidad, el valor puede ser la templanza o la esperanza. Traduce las 3 actitudes del paso anterior en los valores esenciales que esa persona encarna:</p>
-            
-            <div style="margin-bottom: 12px;">
-                <label style="font-size: 0.9rem; color: #555;">Actitud 1 corresponde al valor de:</label>
-                <input type="text" id="p5_valor_1" class="caja-reflexion" style="height: auto; padding: 8px;" placeholder="Ej: Solidaridad, Valentía, Honestidad...">
-            </div>
-            <div style="margin-bottom: 12px;">
-                <label style="font-size: 0.9rem; color: #555;">Actitud 2 corresponds al valor de:</label>
-                <input type="text" id="p5_valor_2" class="caja-reflexion" style="height: auto; padding: 8px;" placeholder="Ej: Templanza, Justicia, Amor...">
-            </div>
-            <div>
-                <label style="font-size: 0.9rem; color: #555;">Actitud 3 corresponde al valor de:</label>
-                <input type="text" id="p5_valor_3" class="caja-reflexion" style="height: auto; padding: 8px;" placeholder="Ej: Humildad, Perseverancia...">
-            </div>
+        <div class="text-center" style="margin-top: 2rem;">
+            <button class="btn btn-guia-delicado" onclick="enviarBusquedaSentido(this)">💾 Guardar Actividad Final</button>
         </div>
-
-<br> <br/>
-
-        <!-- PASO 4 -->
-        <div class="mb-5" style="background: #f4f6f0; padding: 25px; border-radius: 16px; border: 1px dashed #7da820;">
-            <label class="form-label d-block mb-2" style="font-weight: bold; color: #2e4a1e; font-size: 1.1rem;">
-                🌿 Paso 4: La resonancia interior
-            </label>
-            <p class="text-muted mb-4" style="font-size: 0.9rem; font-style: italic; border-left: 2px solid #7da820; padding-left: 10px;">
-                "Viktor Frankl nos recuerda que aquello que nos conmueve del otro es, en realidad, una resonancia de algo que ya vive en nosotros pero que quizás no hemos terminado de encarnar. Solo podemos reconocer y admirar de verdad los valores que nuestra propia dimensión espiritual anhela o ya posee."
-            </p>
-
-            <div class="mb-4">
-                <label class="form-label d-block mb-1" style="font-weight: 600; color: #333;">¿En qué situaciones de mi vida actual yo ya actúo bajo estos mismos valores?</label>
-                <p class="text-muted mb-2" style="font-size: 0.8rem; margin-top:0;">(Trae a tu mente momentos donde tu "hacer" refleje esa misma honestidad, amor, valentía o justicia).</p>
-                <textarea id="p5_reflexion_actual" class="caja-reflexion" placeholder="Mi respuesta..."></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="form-label d-block mb-1" style="font-weight: 600; color: #333;">Al compararme con mi admirado/a, ¿en qué áreas siento que estoy apagando o traicionando mis valores inherentes por comodidad o miedo?</label>
-                <textarea id="p5_reflexion_traicion" class="caja-reflexion" placeholder="Mi respuesta..."></textarea>
-            </div>
-
-            <div class="mb-2">
-                <label class="form-label d-block mb-1" style="font-weight: 600; color: #333;">¿Cuál es la respuesta o actitud concreta "en el hacer" que me comprometo a dar a partir de mañana para honrar estos valores que reconozco en mí?</label>
-                <p class="text-muted mb-2" style="font-size: 0.8rem; margin-top:0;">(Una acción pequeña, medible y real).</p>
-                <textarea id="p5_reflexion_compromiso" class="caja-reflexion" placeholder="Mi respuesta..."></textarea>
-            </div>
-        </div>
-
-        <!-- BOTÓN DE GUARDAR -->
-        <div class="text-center" style="margin-top: 3.5rem; margin-bottom: 4rem;">
-            <button class="btn btn-guia-delicado" id="btn-save-sentido" 
-                    onclick="enviarBusquedaSentido(this)" 
-                    style="background-color: #8c7851; border-radius: 30px; padding: 14px 65px; font-weight: bold; box-shadow: 0 4px 12px rgba(140,120,81,0.25); transition: all 0.2s;">
-                💾 Guardar Actividad Final
-            </button>
-        </div>
-
     </div>
 
-    <div class="intro-box-sobria">
-    <h1 class="page-main-title">5. El Sentido</h1>
-    <p class="texto-guia-sobrio">Otro recurso de la Dimensión Espiritual</p>
-</div>
-
-<!-- CONTENEDOR CON GIF DE FONDO -->
-<div class="sentido-interactive-wrapper">
-    <!-- Capa del GIF de fondo -->
-    <div class="sentido-gif-bg" style="background-image: url(https://iili.io/CrsmRSe.gif);"></div>
-    
-    <!-- Capa de contenido (cuadros de texto encima) -->
-    <div class="sentido-cards-container">
-        
-        <!-- Paso 1 -->
+    <div class="sentido-interactive-wrapper" style="margin-top: 40px;">
         <div class="sentido-card">
-            <span class="step-badge">Paso 1</span>
-            <label class="sentido-label">Identifica tu Comodidad Fáctica <small>(Lo que te arrastra)</small></label>
-            <p class="sentido-desc">
-                Escribe una frase breve sobre esa situación, pensamiento o dolor que hoy te hace sentir estancado, cómodo en el sufrimiento o convencido de que "nada va a cambiar".
-            </p>
-            <textarea class="form-control custom-textarea-sentido" id="ans_comodidad" 
-                placeholder="Ejemplo: 'Me da miedo intentar algo nuevo porque siento que voy a fracasar'"></textarea>
+            <label class="sentido-label">Comodidad Fáctica</label>
+            <textarea class="form-control custom-textarea-sentido" id="ans_comodidad" placeholder="Lo que te ataca o arrastra..."></textarea>
         </div>
-
-        <!-- Paso 2 -->
         <div class="sentido-card">
-            <span class="step-badge">Paso 2</span>
-            <label class="sentido-label">Activa tu Fuerza Facultativa <small>(Tu poder de elegir)</small></label>
-            <p class="sentido-desc">
-                Redacta tu Toma de Postura. Escribe una acción concreta, pequeña pero valiente, que dependa únicamente de ti y te encamine hacia tu 'para qué'.
-            </p>
-            <textarea class="form-control custom-textarea-sentido" id="ans_postura" 
-                placeholder="Ejemplo: 'Aunque tengo miedo a fracasar, hoy decido escribirle a esa persona...'"></textarea>
+            <label class="sentido-label">Toma de Postura</label>
+            <textarea class="form-control custom-textarea-sentido" id="ans_postura" placeholder="Tu poder de elegir..."></textarea>
         </div>
-
-        <!-- Paso 3 -->
         <div class="sentido-card highlight-card">
-            <span class="step-badge badge-gold">Paso 3</span>
-            <label class="sentido-label">Tu Compromiso del Día</label>
-            <p class="sentido-desc">
-                Para sellar este capítulo, escribe tu compromiso definitivo.
-            </p>
-            <textarea class="form-control custom-textarea-sentido" id="ans_compromiso" 
-                placeholder="Mi compromiso es..."></textarea>
+            <label class="sentido-label">Compromiso Definitivo</label>
+            <textarea class="form-control custom-textarea-sentido" id="ans_compromiso" placeholder="Mi compromiso es..."></textarea>
         </div>
-
     </div>
-</div>
 
-<!-- Botón de guardado -->
-<div class="text-center" style="margin-top: 3rem; margin-bottom: 4rem;">
-    <button class="btn btn-guia-delicado" id="btn-save-sentido" 
-            onclick="enviarSentido(this)" 
-            style="background-color: #8c7851; border-radius: 30px; padding: 14px 65px; font-weight: bold; box-shadow: 0 4px 12px rgba(140,120,81,0.25); transition: all 0.2s;">
-        💾 Guardar Registro de El Sentido
-    </button>
-</div>
+    <div class="text-center" style="margin-top: 2rem;">
+        <button class="btn btn-guia-delicado" onclick="enviarSentido(this)">💾 Guardar Registro de El Sentido</button>
+    </div>
 </div>
